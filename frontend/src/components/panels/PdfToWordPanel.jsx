@@ -30,7 +30,7 @@ export default function PdfToWordPanel() {
     setProcessing(true); setResult(null); setProgress('Loading PDF engine…');
     try {
       const pdfjs = await import('pdfjs-dist/build/pdf');
-      pdfjs.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.worker.min.js';
+      pdfjs.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
       const buf = await file.file.arrayBuffer();
       const pdf = await pdfjs.getDocument({ data: buf }).promise;
       const totalPages = pdf.numPages;
@@ -74,8 +74,21 @@ export default function PdfToWordPanel() {
       const baseName = file.name.replace(/\.pdf$/i, '');
       setResult({ url, name: `${baseName}.docx`, size: blob.size, pages: totalPages });
       toast.success(`Converted ${totalPages} page${totalPages > 1 ? 's' : ''} to Word.`);
-    } catch (e) { console.error(e); toast.error('PDF to Word conversion failed.'); }
+    } catch (e) {
+      console.error('[PDF→Word] conversion failed:', e);
+      toast.error(`PDF to Word failed: ${e?.message || 'unknown error'}`);
+    }
     finally { setProcessing(false); setProgress(''); }
+  };
+
+  const triggerDownload = () => {
+    if (!result) return;
+    const a = document.createElement('a');
+    a.href = result.url;
+    a.download = result.name;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
   };
 
   useEffect(() => () => { if (result?.url) URL.revokeObjectURL(result.url); }, [result]);
@@ -132,7 +145,7 @@ export default function PdfToWordPanel() {
           <div className="rounded-2xl border border-stone-200 bg-stone-50 p-6 flex items-center gap-4 flex-wrap">
             <div className="w-14 h-14 rounded-xl bg-blue-50 grid place-items-center shrink-0"><FileText className="w-7 h-7 text-blue-600" /></div>
             <div className="flex-1 min-w-0"><p className="font-semibold text-slate-900 truncate">{result.name}</p><p className="text-sm text-slate-500 mt-0.5">{result.pages} page{result.pages > 1 ? 's' : ''} · {formatBytes(result.size)}</p></div>
-            <a href={result.url} download={result.name} className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold rounded-lg px-5 py-2.5 btn-press"><Download className="w-4 h-4" /> Download</a>
+            <button onClick={triggerDownload} className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold rounded-lg px-5 py-2.5 btn-press"><Download className="w-4 h-4" /> Download</button>
           </div>
         </div>
       )}
