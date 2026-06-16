@@ -1,7 +1,8 @@
-import React, { useState, useRef, useCallback, useEffect } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { Upload, Download, Loader2, RefreshCcw, Lock, FileText, FileDown, Info } from 'lucide-react';
 import { Button } from '../ui/button';
 import { toast } from 'sonner';
+import { downloadBlob } from '../../lib/download';
 
 export default function PdfToWordPanel() {
   const [file, setFile] = useState(null);
@@ -70,10 +71,12 @@ export default function PdfToWordPanel() {
       });
       const doc = new Document({ sections: [{ properties: {}, children }] });
       const blob = await Packer.toBlob(doc);
-      const url = URL.createObjectURL(blob);
       const baseName = file.name.replace(/\.pdf$/i, '');
-      setResult({ url, name: `${baseName}.docx`, size: blob.size, pages: totalPages });
+      const docName = `${baseName}.docx`;
+      setResult({ blob, name: docName, size: blob.size, pages: totalPages });
       toast.success(`Converted ${totalPages} page${totalPages > 1 ? 's' : ''} to Word.`);
+      // Auto-trigger download immediately so the user gets the file even if they don't click again
+      downloadBlob(blob, docName);
     } catch (e) {
       console.error('[PDF→Word] conversion failed:', e);
       toast.error(`PDF to Word failed: ${e?.message || 'unknown error'}`);
@@ -83,15 +86,9 @@ export default function PdfToWordPanel() {
 
   const triggerDownload = () => {
     if (!result) return;
-    const a = document.createElement('a');
-    a.href = result.url;
-    a.download = result.name;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+    const ok = downloadBlob(result.blob, result.name);
+    if (!ok) toast.error('Download blocked by browser. Try right-clicking and saving the link instead.');
   };
-
-  useEffect(() => () => { if (result?.url) URL.revokeObjectURL(result.url); }, [result]);
 
   return (
     <>

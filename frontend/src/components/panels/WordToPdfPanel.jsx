@@ -1,7 +1,8 @@
-import React, { useState, useRef, useCallback, useEffect } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { Upload, Download, Loader2, RefreshCcw, Lock, FileText, FileDown, Info } from 'lucide-react';
 import { Button } from '../ui/button';
 import { toast } from 'sonner';
+import { downloadBlob } from '../../lib/download';
 
 export default function WordToPdfPanel() {
   const [file, setFile] = useState(null);
@@ -64,15 +65,20 @@ export default function WordToPdfPanel() {
       }
 
       const blob = pdf.output('blob');
-      const url = URL.createObjectURL(blob);
       const baseName = file.name.replace(/\.docx$/i, '');
-      setResult({ url, name: `${baseName}.pdf`, size: blob.size, pages: pageCount });
+      const pdfName = `${baseName}.pdf`;
+      setResult({ blob, name: pdfName, size: blob.size, pages: pageCount });
       toast.success(`Generated ${pageCount}-page PDF.`);
-    } catch (e) { console.error(e); toast.error('Word to PDF conversion failed.'); }
+      downloadBlob(blob, pdfName);
+    } catch (e) { console.error('[Word→PDF] conversion failed:', e); toast.error(`Word to PDF failed: ${e?.message || 'unknown error'}`); }
     finally { setProcessing(false); setProgress(''); }
   };
 
-  useEffect(() => () => { if (result?.url) URL.revokeObjectURL(result.url); }, [result]);
+  const triggerDownload = () => {
+    if (!result) return;
+    const ok = downloadBlob(result.blob, result.name);
+    if (!ok) toast.error('Download blocked by browser. Try right-clicking and saving the link instead.');
+  };
 
   return (
     <>
@@ -126,7 +132,7 @@ export default function WordToPdfPanel() {
           <div className="rounded-2xl border border-stone-200 bg-stone-50 p-6 flex items-center gap-4 flex-wrap">
             <div className="w-14 h-14 rounded-xl bg-red-50 grid place-items-center shrink-0"><FileText className="w-7 h-7 text-red-600" /></div>
             <div className="flex-1 min-w-0"><p className="font-semibold text-slate-900 truncate">{result.name}</p><p className="text-sm text-slate-500 mt-0.5">{result.pages} page{result.pages > 1 ? 's' : ''} · {formatBytes(result.size)}</p></div>
-            <a href={result.url} download={result.name} className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold rounded-lg px-5 py-2.5 btn-press"><Download className="w-4 h-4" /> Download</a>
+            <button onClick={triggerDownload} className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold rounded-lg px-5 py-2.5 btn-press"><Download className="w-4 h-4" /> Download</button>
           </div>
         </div>
       )}
