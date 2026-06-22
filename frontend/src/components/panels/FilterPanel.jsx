@@ -6,7 +6,16 @@ import { Button } from '../ui/button';
 export default function FilterPanel({ imageSrc }) {
   const [filters, setFilters] = useState({ brightness: 100, contrast: 100, grayscale: 0 });
   const imageRef = useRef(null);
+if (!imageSrc) {
+    return <div className="p-10 text-center">Please upload an image to start editing.</div>;
+  }
 
+  return (
+    <div className="flex flex-col gap-6 p-6">
+      {/* ... rest of your UI */}
+    </div>
+  );
+}
   const filterString = `brightness(${filters.brightness}%) contrast(${filters.contrast}%) grayscale(${filters.grayscale}%)`;
 
   const handleDownload = async () => {
