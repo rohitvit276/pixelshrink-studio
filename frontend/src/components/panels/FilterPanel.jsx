@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import html2canvas from 'html2canvas';
 import { Slider } from '../ui/slider';
 import { Button } from '../ui/button';
@@ -7,6 +7,15 @@ export default function FilterPanel({ imageSrc, setUploadedImage }) {
   const [filters, setFilters] = useState({ brightness: 100, contrast: 100, grayscale: 0 });
   const imageRef = useRef(null);
 
+  // Clean up the object URL when component unmounts
+  useEffect(() => {
+    return () => {
+      if (imageSrc && imageSrc.startsWith('blob:')) {
+        URL.revokeObjectURL(imageSrc);
+      }
+    };
+  }, [imageSrc]);
+
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (file) setUploadedImage(URL.createObjectURL(file));
@@ -14,7 +23,12 @@ export default function FilterPanel({ imageSrc, setUploadedImage }) {
 
   const handleDownload = async () => {
     if (imageRef.current) {
-      const canvas = await html2canvas(imageRef.current, { backgroundColor: null, useCORS: true });
+      // Small delay to ensure filters are applied before capture
+      const canvas = await html2canvas(imageRef.current, { 
+        backgroundColor: null, 
+        useCORS: true, 
+        logging: false 
+      });
       const link = document.createElement('a');
       link.download = 'pixelshrink-filtered.png';
       link.href = canvas.toDataURL('image/png');
