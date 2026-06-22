@@ -9,9 +9,7 @@ export default function FilterPanel({ imageSrc, setUploadedImage }) {
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
-    if (file) {
-      setUploadedImage(URL.createObjectURL(file));
-    }
+    if (file) setUploadedImage(URL.createObjectURL(file));
   };
 
   const handleDownload = async () => {
@@ -43,11 +41,9 @@ export default function FilterPanel({ imageSrc, setUploadedImage }) {
           alt="Filtered" 
         />
       </div>
-      
       <div className="space-y-4">
         <label>Brightness ({filters.brightness}%)</label>
         <Slider value={[filters.brightness]} min={0} max={200} onValueChange={(v) => setFilters(prev => ({...prev, brightness: v[0]}))} />
-        
         <Button onClick={handleDownload} className="w-full">Download Filtered Image</Button>
       </div>
     </div>
