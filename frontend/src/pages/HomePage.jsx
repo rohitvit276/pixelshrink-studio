@@ -19,6 +19,7 @@ export default function HomePage({ activeTool: routeTool }) {
 
   const scrollToTool = (toolKey) => {
     if (toolKey) setActiveTool(toolKey);
+    // Small delay allows React to commit the state update before scrolling
     setTimeout(() => {
       const el = document.getElementById('tool');
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -35,7 +36,7 @@ export default function HomePage({ activeTool: routeTool }) {
       <Header onToolSelect={setActiveTool} />
       <main>
         {!routeTool && <HeroSection onGetStarted={() => scrollToTool(null)} />}
-        {!routeTool && <ToolsShowcase onToolSelect={(key) => { setActiveTool(key); scrollToTool(key); }} />}
+        {!routeTool && <ToolsShowcase onToolSelect={scrollToTool} />}
         <ToolSection 
           activeTool={activeTool} 
           imageSrc={uploadedImage} 

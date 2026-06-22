@@ -32,13 +32,7 @@ export default function ToolsShowcase({ onToolSelect }) {
           return (
             <button
               key={tool.key}
-              onClick={() => {
-                if (onToolSelect) onToolSelect(tool.key);
-                setTimeout(() => {
-                  const el = document.getElementById('tool');
-                  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 50);
-              }}
+              onClick={() => onToolSelect && onToolSelect(tool.key)}
               className="group text-left bg-white border border-stone-200 rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-emerald-200 hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
             >
               <div className="w-11 h-11 rounded-xl bg-emerald-50 group-hover:bg-emerald-100 transition-colors grid place-items-center mb-4">
