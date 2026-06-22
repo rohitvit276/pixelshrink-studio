@@ -1,5 +1,5 @@
 // Mock data for PixelShrink Studio (frontend-only)
-import { Scissors, Eraser, Crop as CropIcon, FileText, FileType2, Video, Music, Sparkles } from 'lucide-react';
+import { Scissors, Eraser, Crop as CropIcon, FileText, FileType2, Video, Music, Sparkles, Smile } from 'lucide-react';
 
 export const TOOLS = [
   {
@@ -65,6 +65,14 @@ export const TOOLS = [
     icon: Music,
     headline: 'Video to MP3 — extract audio, free.',
     sub: 'Pull the audio out of any video file you own. Get a clean MP3 ready to share.',
+  },
+  {
+    key: 'moustachify',
+    label: 'Moustachify',
+    short: 'Stache',
+    icon: Smile,
+    headline: 'Moustachify — add a moustache to any face, free.',
+    sub: 'Automatic face detection adds a perfect moustache to your photo. Choose from 6 fun styles.',
   },
 ];
 

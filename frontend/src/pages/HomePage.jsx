@@ -7,6 +7,7 @@ import ToolSection from '../components/ToolSection';
 import InfoSections from '../components/InfoSections';
 import FAQSection from '../components/FAQSection';
 import Footer from '../components/Footer';
+import MoustachifyShowcase from '../components/MoustachifyShowcase';
 import { Helmet } from 'react-helmet-async';
 
 export default function HomePage({ activeTool: routeTool }) {
@@ -37,6 +38,7 @@ export default function HomePage({ activeTool: routeTool }) {
       <main>
         {!routeTool && <HeroSection onGetStarted={() => scrollToTool(null)} />}
         {!routeTool && <ToolsShowcase onToolSelect={scrollToTool} />}
+        {!routeTool && <MoustachifyShowcase onTryNow={scrollToTool} />}
         <ToolSection 
           activeTool={activeTool} 
           imageSrc={uploadedImage} 
