@@ -25,7 +25,6 @@ export default function HomePage({ activeTool: routeTool }) {
       <main>
         <ToolSection 
           activeTool={activeTool} 
-          onToolChange={setActiveTool} 
           imageSrc={uploadedImage} 
           setUploadedImage={setUploadedImage} 
         />
