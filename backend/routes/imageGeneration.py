@@ -32,6 +32,9 @@ image_generation_router = APIRouter(prefix="/api", tags=["image-generation"])
 request_log = defaultdict(list)
 generation_cache = {}
 
+MAX_SEED_VALUE = 2147483647  # max signed 32-bit integer
+TOGETHER_MAX_STEPS = 4  # FLUX.1-schnell works best with 1–4 steps
+
 # Error taxonomy codes
 ERR_AUTH_MISSING = "auth_missing"
 ERR_RATE_LIMIT = "rate_limit"
@@ -48,7 +51,7 @@ class ImageGenerationRequest(BaseModel):
     height: Literal[512, 768, 1024] = 512
     guidance_scale: float = Field(default=8.5, ge=7, le=20)
     num_inference_steps: int = Field(default=30, ge=20, le=50)
-    seed: Optional[int] = Field(default=None, ge=0, le=2147483647)
+    seed: Optional[int] = Field(default=None, ge=0, le=MAX_SEED_VALUE)
     model: str = Field(default=DEFAULT_MODEL, min_length=3, max_length=120)
 
 
@@ -178,7 +181,7 @@ async def _request_image_pollinations(
     Returns (image_bytes, mime_type).
     """
     encoded_prompt = urllib.parse.quote(prompt)
-    seed_val = seed if seed is not None else int(time.time()) % 2147483647
+    seed_val = seed if seed is not None else int(time.time()) % MAX_SEED_VALUE
     url = (
         f"{POLLINATIONS_API_BASE}/{encoded_prompt}"
         f"?width={width}&height={height}&seed={seed_val}&nologo=true&enhance=false"
@@ -228,7 +231,7 @@ async def _request_image_together(
     """
     headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
     # FLUX.1-schnell works best with 1–4 steps; clamp regardless of user setting
-    together_steps = min(steps, 4)
+    together_steps = min(steps, TOGETHER_MAX_STEPS)
     payload: dict = {
         "model": TOGETHER_MODEL,
         "prompt": prompt,
