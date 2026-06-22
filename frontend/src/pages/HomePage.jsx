@@ -4,6 +4,13 @@ import ToolSection from '../components/ToolSection';
 import InfoSections from '../components/InfoSections';
 import FAQSection from '../components/FAQSection';
 import Footer from '../components/Footer';
+import { Helmet } from 'react-helmet-async';
+
+// Inside your component render:
+<Helmet>
+  <title>Free Online Image Filters & Photo Editor | PixelShrink Studio</title>
+  <meta name="description" content="Apply professional photo filters and adjust brightness, contrast, and grayscale instantly in your browser. No sign-up required." />
+</Helmet>
 
 export default function HomePage({ activeTool: routeTool }) {
   // Initialize state from prop, fallback to 'shrink'
