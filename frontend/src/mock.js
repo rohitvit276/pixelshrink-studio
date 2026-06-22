@@ -1,5 +1,5 @@
 // Mock data for PixelShrink Studio (frontend-only)
-import { Scissors, Eraser, Crop as CropIcon, FileText, FileType2, Video, Music } from 'lucide-react';
+import { Scissors, Eraser, Crop as CropIcon, FileText, FileType2, Video, Music, Sparkles } from 'lucide-react';
 
 export const TOOLS = [
   {
@@ -25,6 +25,14 @@ export const TOOLS = [
     icon: CropIcon,
     headline: 'Crop Image — pick the perfect frame, free.',
     sub: 'Drag to crop, lock to a preset aspect ratio, and download the result. All in your browser.',
+  },
+  {
+    key: 'filters',
+    label: 'Image Filters',
+    short: 'Filters',
+    icon: Sparkles,
+    headline: 'Image Filters — adjust brightness, contrast & more, free.',
+    sub: 'Apply professional photo filters instantly. Adjust brightness, contrast, and grayscale right in your browser.',
   },
   {
     key: 'pdf2word',
@@ -73,7 +81,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: 'How accurate is the PDF → Word conversion?',
-    a: 'It extracts the text and turns each page into Word paragraphs. Plain, text-heavy PDFs convert beautifully. Complex layouts, scanned PDFs, tables and images may not survive the trip — use a dedicated server-side converter for those.',
+    a: 'It extracts the text and turns each page into Word paragraphs. Plain, text-heavy PDFs convert beautifully. Complex layouts, scanned PDFs, tables and images may not survive the trip — use[...]',
   },
   {
     q: 'How accurate is the Word → PDF conversion?',
@@ -81,7 +89,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: 'How big a video can I compress?',
-    a: 'Videos up to around 500 MB work reliably in most modern browsers. Bigger files can hit your browser’s memory limit. Compression and audio extraction are CPU-heavy — expect a few minutes for longer videos.',
+    a: 'Videos up to around 500 MB work reliably in most modern browsers. Bigger files can hit your browser's memory limit. Compression and audio extraction are CPU-heavy — expect a few minute[...]',
   },
   {
     q: 'Which file formats are supported?',
@@ -97,6 +105,7 @@ export const USE_CASES = [
   'Publishing photos on websites for faster page loading',
   'Creating product shots with transparent backgrounds',
   'Cropping headshots and thumbnails to perfect dimensions',
+  'Adjusting brightness, contrast and other photo effects',
   'Turning PDF notes back into editable Word documents',
   'Sharing Word reports as polished PDF attachments',
   'Compressing videos for email, messaging and social uploads',
