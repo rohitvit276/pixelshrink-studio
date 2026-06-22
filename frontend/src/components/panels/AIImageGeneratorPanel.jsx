@@ -155,11 +155,19 @@ export default function AIImageGeneratorPanel() {
       }
 
       if (process.env.NODE_ENV === 'development') {
-        console.debug('[AI Image] Response:', { status: response.status, hasBase64: !!result.imageBase64, cached: !!result.cached, mimeType: result.mimeType });
+        console.debug('[AI Image] Response:', { status: response.status, hasBase64: !!result.imageBase64, cached: !!result.cached, mimeType: result.mimeType, provider: result.provider });
       }
 
       if (!response.ok) {
-        const detail = result?.detail || 'AI generation failed. Please try again.';
+        const raw_detail = result?.detail;
+        let detail;
+        if (raw_detail && typeof raw_detail === 'object' && raw_detail.message) {
+          detail = raw_detail.message;
+        } else if (typeof raw_detail === 'string') {
+          detail = raw_detail;
+        } else {
+          detail = 'AI generation failed. Please try again.';
+        }
         throw new Error(detail);
       }
 
