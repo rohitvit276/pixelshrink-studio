@@ -7,6 +7,7 @@ import WordToPdfPanel from './panels/WordToPdfPanel';
 import VideoCompressPanel from './panels/VideoCompressPanel';
 import VideoToMp3Panel from './panels/VideoToMp3Panel';
 import FilterPanel from './panels/FilterPanel';
+import MoustachifyPanel from './panels/MoustachifyPanel';
 
 export default function ToolSection({ activeTool, imageSrc, setUploadedImage }) {
   const renderTool = () => {
@@ -20,6 +21,7 @@ export default function ToolSection({ activeTool, imageSrc, setUploadedImage }) 
       case 'video2mp3': return <VideoToMp3Panel />;
       case 'filters': 
         return <FilterPanel imageSrc={imageSrc} setUploadedImage={setUploadedImage} />;
+      case 'moustachify': return <MoustachifyPanel />;
       default: return <ShrinkPanel />;
     }
   };
