@@ -6,17 +6,12 @@ import FAQSection from '../components/FAQSection';
 import Footer from '../components/Footer';
 import { Helmet } from 'react-helmet-async';
 
-// Inside your component render:
-<Helmet>
-  <title>Free Online Image Filters & Photo Editor | PixelShrink Studio</title>
-  <meta name="description" content="Apply professional photo filters and adjust brightness, contrast, and grayscale instantly in your browser. No sign-up required." />
-</Helmet>
-
 export default function HomePage({ activeTool: routeTool }) {
-  // Initialize state from prop, fallback to 'shrink'
+  // Initialize state
   const [activeTool, setActiveTool] = useState(routeTool || 'shrink');
+  const [uploadedImage, setUploadedImage] = useState(null);
 
-  // Update state if the route changes
+  // Sync state if route changes
   useEffect(() => {
     if (routeTool) {
       setActiveTool(routeTool);
@@ -25,9 +20,21 @@ export default function HomePage({ activeTool: routeTool }) {
 
   return (
     <div className="min-h-screen bg-[#fafaf7]">
+      {/* Helmet is now correctly inside the component */}
+      <Helmet>
+        <title>Free Online Image Filters & Photo Editor | PixelShrink Studio</title>
+        <meta name="description" content="Apply professional photo filters and adjust brightness, contrast, and grayscale instantly in your browser. No sign-up required." />
+      </Helmet>
+      
       <Header onToolSelect={setActiveTool} />
       <main>
-        <ToolSection activeTool={activeTool} onToolChange={setActiveTool} />
+        <ToolSection 
+          activeTool={activeTool} 
+          onToolChange={setActiveTool}
+          imageSrc={uploadedImage}
+          setUploadedImage={setUploadedImage}
+        />
+        
         {/* Only show landing page content if no specific tool is active */}
         {!routeTool && (
           <>
