@@ -16,11 +16,12 @@ function App() {
           <Route path="/shrink-image" element={<HomePage activeTool="shrink" />} />
           <Route path="/remove-background" element={<HomePage activeTool="removebg" />} />
           <Route path="/crop-image" element={<HomePage activeTool="crop" />} />
+          <Route path="/image-filters" element={<HomePage activeTool="filters" />} />
+          <Route path="/moustachify" element={<HomePage activeTool="moustachify" />} />
           <Route path="/pdf-to-word" element={<HomePage activeTool="pdf2word" />} />
           <Route path="/word-to-pdf" element={<HomePage activeTool="word2pdf" />} />
           <Route path="/compress-video" element={<HomePage activeTool="compressvideo" />} />
           <Route path="/video-to-mp3" element={<HomePage activeTool="video2mp3" />} />
-          <Route path="/image-filters" element={<HomePage activeTool="filters" />} />
           {/* Fallback for any invalid routes */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
