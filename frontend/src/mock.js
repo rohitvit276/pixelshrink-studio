@@ -81,7 +81,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: 'How accurate is the PDF → Word conversion?',
-    a: 'It extracts the text and turns each page into Word paragraphs. Plain, text-heavy PDFs convert beautifully. Complex layouts, scanned PDFs, tables and images may not survive the trip — use[...]',
+    a: 'It extracts the text and turns each page into Word paragraphs. Plain, text-heavy PDFs convert beautifully. Complex layouts, scanned PDFs, tables and images may not survive the trip.',
   },
   {
     q: 'How accurate is the Word → PDF conversion?',
@@ -89,7 +89,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: 'How big a video can I compress?',
-    a: 'Videos up to around 500 MB work reliably in most modern browsers. Bigger files can hit your browser's memory limit. Compression and audio extraction are CPU-heavy — expect a few minute[...]',
+    a: 'Videos up to around 500 MB work reliably in most modern browsers. Bigger files can hit your browser memory limit. Compression and audio extraction are CPU-heavy operations.',
   },
   {
     q: 'Which file formats are supported?',
