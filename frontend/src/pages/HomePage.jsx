@@ -13,8 +13,8 @@ import { Helmet } from 'react-helmet-async';
 const SEO_META = {
   default: {
     title: 'PixelShrink Studio — Free Online Image, PDF & Video Tools',
-    description: 'Free online tools to shrink images, remove backgrounds, crop, convert PDF to Word, Word to PDF, compress videos, add moustaches, create styled writing and extract audio. 100% browser-based.',
-    keywords: 'image resizer, image shrinker, remove background, crop image, pdf to word, word to pdf, compress video, video to mp3, moustachify, styled writing, free online tools',
+    description: 'Free online tools to shrink images, remove backgrounds, crop, convert PDF to Word, Word to PDF, generate AI images, style writing and compress videos. 100% browser-based.',
+    keywords: 'image resizer, image shrinker, remove background, crop image, ai image generator, text to image, pdf to word, word to pdf, compress video, video to mp3, moustachify, styled writing, free online tools',
   },
   shrink: {
     title: 'Free Image Resizer Online | Shrink Images Without Quality Loss',
@@ -35,6 +35,11 @@ const SEO_META = {
     title: 'Free Online Photo Filters & Editor | Adjust Brightness, Contrast & Grayscale',
     description: 'Apply professional photo filters instantly. Adjust brightness, contrast, and grayscale on your images. No installation, no uploads required.',
     keywords: 'photo filters, image editor, brightness contrast adjustment, photo effects, online photo editor, grayscale filter',
+  },
+  aimagegen: {
+    title: 'Free AI Image Generator | Create Images from Text Prompts',
+    description: 'Generate stunning AI images from text prompts for free. No sign-up required. Create art, designs, and graphics instantly.',
+    keywords: 'AI image generator, text to image, AI art, image generation, free AI generator, create images',
   },
   styledwriting: {
     title: 'Styled Writing & Text Card Creator | Design Beautiful Quotes & Cards',
@@ -68,6 +73,21 @@ const SEO_META = {
   },
 };
 
+const ROUTE_PATH_MAP = {
+  shrink: '/shrink-image',
+  removebg: '/remove-background',
+  crop: '/crop-image',
+  filters: '/image-filters',
+  aimagegen: '/ai-image-generator',
+  styledwriting: '/styled-writing',
+  texttoimage: '/text-to-image',
+  moustachify: '/moustachify',
+  pdf2word: '/pdf-to-word',
+  word2pdf: '/word-to-pdf',
+  compressvideo: '/compress-video',
+  video2mp3: '/video-to-mp3',
+};
+
 export default function HomePage({ activeTool: routeTool }) {
   const [activeTool, setActiveTool] = useState(routeTool || 'shrink');
   const [uploadedImage, setUploadedImage] = useState(null);
@@ -86,6 +106,7 @@ export default function HomePage({ activeTool: routeTool }) {
 
   // Get SEO meta for current tool or use default
   const currentSeo = SEO_META[routeTool] || SEO_META.default;
+  const canonicalPath = routeTool ? (ROUTE_PATH_MAP[routeTool] || '/') : '/';
 
   return (
     <div className="min-h-screen bg-[#fafaf7]">
@@ -95,12 +116,12 @@ export default function HomePage({ activeTool: routeTool }) {
         <meta name="keywords" content={currentSeo.keywords} />
         <meta property="og:title" content={currentSeo.title} />
         <meta property="og:description" content={currentSeo.description} />
-        <meta property="og:url" content={`https://pixelshrinkstudio.com${routeTool ? '/' + routeTool : '/'}`} />
+        <meta property="og:url" content={`https://pixelshrinkstudio.com${canonicalPath}`} />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={currentSeo.title} />
         <meta name="twitter:description" content={currentSeo.description} />
-        <link rel="canonical" href={`https://pixelshrinkstudio.com${routeTool ? '/' + routeTool : '/'}`} />
+        <link rel="canonical" href={`https://pixelshrinkstudio.com${canonicalPath}`} />
       </Helmet>
       
       <Header onToolSelect={setActiveTool} />

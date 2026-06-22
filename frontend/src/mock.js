@@ -1,5 +1,5 @@
 // Mock data for PixelShrink Studio (frontend-only)
-import { Scissors, Eraser, Crop as CropIcon, FileText, FileType2, Video, Music, Sparkles, Smile, Type } from 'lucide-react';
+import { Scissors, Eraser, Crop as CropIcon, FileText, FileType2, Video, Music, Sparkles, Smile, Type, Image as ImageIcon } from 'lucide-react';
 
 export const TOOLS = [
   {
@@ -102,6 +102,17 @@ export const TOOLS = [
     seoKeywords: 'video to mp3, extract audio, convert video to audio, mp3 converter, audio extractor',
   },
   {
+    key: 'aimagegen',
+    label: 'AI Image Generator',
+    short: 'AI Gen',
+    icon: ImageIcon,
+    headline: 'AI Image Generator — create art from text prompts, free.',
+    sub: 'Generate AI images from prompts using free Hugging Face models. Choose style, size and settings, then download instantly.',
+    seoTitle: 'Free AI Image Generator | Create Images from Text Prompts',
+    seoDesc: 'Generate stunning AI images from text prompts for free. No sign-up required. Create art, designs, and graphics instantly.',
+    seoKeywords: 'AI image generator, text to image, AI art, image generation, free AI generator, create images',
+  },
+  {
     key: 'texttoimage',
     label: 'Text to Image',
     short: 'Txt→Img',
@@ -119,7 +130,7 @@ export const NAV_LINKS = TOOLS.map(({ key, label }) => ({ label, tool: key, href
 export const FAQ_ITEMS = [
   {
     q: 'Are all the tools really free?',
-      a: 'Yes. Every tool — shrinking, background removal, cropping, filters, moustachify, text to image, document conversion, video compression and audio extraction — is completely free, with no sign-up required.',
+      a: 'Yes. Every tool — shrinking, background removal, cropping, filters, moustachify, AI image generation, text to image, document conversion, video compression and audio extraction — is free to start, with fair-use limits on AI generation.',
   },
   {
     q: 'Do my files get uploaded to a server?',
@@ -149,6 +160,10 @@ export const FAQ_ITEMS = [
     q: 'How does Moustachify work?',
     a: 'Moustachify uses face detection technology to identify faces in your image, then automatically applies a moustache with your chosen style. Choose from 6 fun styles and adjust the size to your liking.',
   },
+  {
+    q: 'How does AI image generation work here?',
+    a: 'The AI Image Generator sends your prompt and settings to Hugging Face Inference API. Most images generate in 2-10 seconds. Free tier access follows fair-use and rate limits.',
+  },
 ];
 
 export const USE_CASES = [
@@ -161,5 +176,6 @@ export const USE_CASES = [
   'Sharing Word reports as polished PDF attachments',
   'Compressing videos for email, messaging and social uploads',
   'Extracting audio from videos for podcasts and clips',
+  'Generating AI artwork, concept designs and social graphics from text prompts',
   'Creating text graphics and quote images for social media',
 ];

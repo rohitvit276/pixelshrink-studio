@@ -9,6 +9,7 @@ import VideoToMp3Panel from './panels/VideoToMp3Panel';
 import FilterPanel from './panels/FilterPanel';
 import MoustachifyPanel from './panels/MoustachifyPanel';
 import TextToImagePanel from './panels/TextToImagePanel';
+import AIImageGeneratorPanel from './panels/AIImageGeneratorPanel';
 
 export default function ToolSection({ activeTool, imageSrc, setUploadedImage }) {
   const renderTool = () => {
@@ -23,6 +24,7 @@ export default function ToolSection({ activeTool, imageSrc, setUploadedImage }) 
       case 'filters': 
         return <FilterPanel imageSrc={imageSrc} setUploadedImage={setUploadedImage} />;
       case 'moustachify': return <MoustachifyPanel />;
+      case 'aimagegen': return <AIImageGeneratorPanel />;
       case 'texttoimage': return <TextToImagePanel />;
       default: return <ShrinkPanel />;
     }
