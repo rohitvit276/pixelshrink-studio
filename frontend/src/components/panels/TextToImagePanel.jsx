@@ -16,8 +16,7 @@ const FONTS = [
 
 const CANVAS_PRESETS = [
   { label: 'Instagram Square', width: 1080, height: 1080 },
-  { label: 'Instagram Story', width: 1080, height: 1920 },
-  { label: 'Instagram Reel', width: 1080, height: 1920 },
+  { label: 'Instagram Story / Reel', width: 1080, height: 1920 },
   { label: 'Twitter / X', width: 1024, height: 512 },
   { label: 'Facebook', width: 1200, height: 628 },
   { label: 'LinkedIn', width: 1200, height: 628 },
@@ -172,7 +171,11 @@ export default function TextToImagePanel() {
       const quality = state.format === 'jpg' ? 0.95 : undefined;
       canvas.toBlob(
         (blob) => {
-          if (!blob) { toast.error('Failed to generate image.'); setRendering(false); return; }
+          if (!blob) {
+            toast.error('Failed to generate image.');
+            setRendering(false);
+            return;
+          }
           const url = URL.createObjectURL(blob);
           const a = document.createElement('a');
           a.href = url;
@@ -425,7 +428,7 @@ export default function TextToImagePanel() {
             />
           </div>
           <p className="text-xs text-slate-400 mt-2 text-center">
-            Preview is scaled to fit. Download is full resolution (2× for sharpness).
+            Preview is scaled to fit. Downloaded image is full resolution for crisp output.
           </p>
         </div>
       </div>
