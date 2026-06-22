@@ -13,8 +13,8 @@ import { Helmet } from 'react-helmet-async';
 const SEO_META = {
   default: {
     title: 'PixelShrink Studio — Free Online Image, PDF & Video Tools',
-    description: 'Free online tools to shrink images, remove backgrounds, crop, convert PDF to Word, Word to PDF, compress videos, add moustaches and extract audio. 100% browser-based.',
-    keywords: 'image resizer, image shrinker, remove background, crop image, pdf to word, word to pdf, compress video, video to mp3, moustachify, free online tools',
+    description: 'Free online tools to shrink images, remove backgrounds, crop, convert PDF to Word, Word to PDF, compress videos, add moustaches, create styled writing and extract audio. 100% browser-based.',
+    keywords: 'image resizer, image shrinker, remove background, crop image, pdf to word, word to pdf, compress video, video to mp3, moustachify, styled writing, free online tools',
   },
   shrink: {
     title: 'Free Image Resizer Online | Shrink Images Without Quality Loss',
@@ -35,6 +35,11 @@ const SEO_META = {
     title: 'Free Online Photo Filters & Editor | Adjust Brightness, Contrast & Grayscale',
     description: 'Apply professional photo filters instantly. Adjust brightness, contrast, and grayscale on your images. No installation, no uploads required.',
     keywords: 'photo filters, image editor, brightness contrast adjustment, photo effects, online photo editor, grayscale filter',
+  },
+  styledwriting: {
+    title: 'Styled Writing & Text Card Creator | Design Beautiful Quotes & Cards',
+    description: 'Create beautiful styled text cards with custom fonts, colors, and effects. Download as PNG/JPG for social media and designs. Perfect for quotes and creative posts.',
+    keywords: 'styled text, text card creator, quote maker, creative writing, font styling, card design, text graphics',
   },
   moustachify: {
     title: 'Moustachify — Add Moustache to Photos | Free Face Detection Tool',
@@ -60,11 +65,6 @@ const SEO_META = {
     title: 'Convert Video to MP3 | Free Audio Extraction Tool',
     description: 'Extract audio from videos and download as MP3. Works with MP4, MOV, WebM files. Perfect for podcasts and music clips.',
     keywords: 'video to mp3, extract audio, convert video to audio, mp3 converter, audio extractor',
-  },
-  texttoimage: {
-    title: 'Text to Image Creator | Free Online Generator',
-    description: 'Create beautiful images from text. Customize fonts, colors, effects and download instantly. Perfect for social media graphics and quote images.',
-    keywords: 'text to image, image generator, create images, text graphics, quote maker, social media graphics',
   },
 };
 
