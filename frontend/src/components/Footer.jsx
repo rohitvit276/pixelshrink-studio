@@ -21,6 +21,8 @@ export default function Footer() {
         </div>
         <div className="border-t border-white/10 mt-8 pt-6 text-sm text-stone-500 text-center">
           © {new Date().getFullYear()} PixelShrink Studio. All rights reserved.
+          <br />
+          Deployed via Jenkins CI/CD 🚀
         </div>
       </div>
     </footer>
