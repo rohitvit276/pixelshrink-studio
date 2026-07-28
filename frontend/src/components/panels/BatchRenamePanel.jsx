@@ -76,6 +76,11 @@ export default function BatchRenamePanel() {
 
   return (
     <>
+      <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 md:p-5 mb-6">
+        <p className="text-sm text-emerald-900 leading-relaxed">
+          <span className="font-bold">What this tool does:</span> if you have a bunch of files with messy or inconsistent names — like <code className="bg-white/70 px-1 rounded">IMG_2841.jpg</code>, <code className="bg-white/70 px-1 rounded">Screenshot (14).png</code>, <code className="bg-white/70 px-1 rounded">file_final_v2.pdf</code> — this renames all of them at once using one pattern you choose, instead of you typing a new name for every single file by hand. Upload your files, set a pattern below, and download everything renamed together in one ZIP file.
+        </p>
+      </div>
       <div className="grid lg:grid-cols-5 gap-6">
         <div className="lg:col-span-3 bg-white border border-stone-200 rounded-3xl p-5 md:p-7 shadow-sm">
           <div className="flex items-center justify-between mb-4">
@@ -115,19 +120,24 @@ export default function BatchRenamePanel() {
         </div>
 
         <div className="lg:col-span-2 bg-white border border-stone-200 rounded-3xl p-5 md:p-7 shadow-sm">
-          <h3 className="font-display font-extrabold text-xl text-slate-900">Naming pattern</h3>
-          <p className="text-sm text-slate-500 mt-1">Use <code className="bg-stone-100 px-1 rounded">{'{name}'}</code> for the original filename and <code className="bg-stone-100 px-1 rounded">{'{n}'}</code> for the sequence number.</p>
+          <h3 className="font-display font-extrabold text-xl text-slate-900">Choose a naming pattern</h3>
+          <p className="text-sm text-slate-500 mt-1.5 leading-relaxed">
+            Type how you want the new names to look. Wherever you write <code className="bg-stone-100 px-1 rounded font-semibold text-slate-700">{'{n}'}</code>, it's replaced with a number that counts up (1, 2, 3…) so every file gets its own name. Wherever you write <code className="bg-stone-100 px-1 rounded font-semibold text-slate-700">{'{name}'}</code>, it's replaced with that file's original name.
+          </p>
+          <p className="text-xs text-slate-400 mt-2 leading-relaxed">
+            Example: the pattern <span className="font-mono text-slate-600">vacation-{'{n}'}</span> turns <span className="font-mono text-slate-600">photo1.jpg</span> and <span className="font-mono text-slate-600">photo2.jpg</span> into <span className="font-mono text-slate-600">vacation-1.jpg</span> and <span className="font-mono text-slate-600">vacation-2.jpg</span>.
+          </p>
           <div className="mt-4">
             <Label htmlFor="pattern" className="text-xs text-slate-500">Pattern</Label>
             <Input id="pattern" value={pattern} onChange={(e) => setPattern(e.target.value)} placeholder="{name}-{n}" className="mt-1" />
           </div>
           <div className="grid grid-cols-2 gap-3 mt-4">
             <div>
-              <Label htmlFor="start" className="text-xs text-slate-500">Start number</Label>
+              <Label htmlFor="start" className="text-xs text-slate-500">Start counting from</Label>
               <Input id="start" type="number" min={0} value={startNum} onChange={(e) => setStartNum(Math.max(0, Number(e.target.value) || 0))} className="mt-1" />
             </div>
             <div>
-              <p className="text-xs text-slate-500">Digits <span className="font-bold text-emerald-700">{padding}</span></p>
+              <p className="text-xs text-slate-500">Number length <span className="font-bold text-emerald-700">{padding}</span> <span className="text-slate-400 font-normal">(e.g. {String(1).padStart(padding, '0')}, {String(2).padStart(padding, '0')})</span></p>
               <Slider value={[padding]} onValueChange={(v) => setPadding(v[0])} min={1} max={5} step={1} className="mt-3" />
             </div>
           </div>

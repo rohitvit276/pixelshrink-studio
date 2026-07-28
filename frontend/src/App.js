@@ -27,7 +27,7 @@ function App() {
           <Route path="/convert-image" element={<HomePage activeTool="convert" />} />
           <Route path="/watermark-image" element={<HomePage activeTool="watermark" />} />
           <Route path="/exif-metadata" element={<HomePage activeTool="exif" />} />
-          <Route path="/batch-rename" element={<HomePage activeTool="batchrename" />} />
+          <Route path="/bulk-file-rename" element={<HomePage activeTool="batchrename" />} />
           <Route path="/meme-generator" element={<HomePage activeTool="meme" />} />
           <Route path="/image-collage" element={<HomePage activeTool="collage" />} />
           <Route path="/pdf-organizer" element={<HomePage activeTool="pdforganizer" />} />

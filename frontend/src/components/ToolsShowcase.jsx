@@ -14,7 +14,7 @@ const TOOL_FEATURES = {
   convert:       ['PNG, JPG, WEBP, AVIF', 'Quality control', 'Batch conversion'],
   watermark:     ['Text or logo', '9-point positioning', 'Tile mode'],
   exif:          ['View camera & GPS data', 'One-click strip', 'Privacy-first'],
-  batchrename:   ['Custom naming pattern', 'Sequential numbering', 'ZIP download'],
+  batchrename:   ['Rename many files at once', 'Auto-numbered filenames', 'Get them all in one ZIP'],
   meme:          ['Classic top/bottom text', 'Auto text wrapping', 'PNG export'],
   collage:       ['2-9 images', 'Adjustable grid', 'Cover or fit mode'],
   pdforganizer:  ['Merge multiple PDFs', 'Reorder & delete pages', 'Split to ZIP'],

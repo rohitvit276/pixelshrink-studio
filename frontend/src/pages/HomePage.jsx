@@ -87,9 +87,9 @@ const SEO_META = {
     keywords: 'exif viewer, remove metadata, strip exif, remove gps from photo, metadata remover, photo privacy',
   },
   batchrename: {
-    title: 'Free Batch File Renamer | Rename Multiple Files at Once',
-    description: 'Rename dozens of files at once using a custom naming pattern and sequential numbering. Download as a ZIP. 100% browser-based.',
-    keywords: 'batch rename, rename multiple files, sequential rename, bulk file rename online',
+    title: 'Free Bulk File Renaming Tool | Rename Multiple Files at Once',
+    description: "Rename dozens of files at once with one naming pattern and automatic numbering — no more renaming files one by one. Download them all as a ZIP. 100% browser-based.",
+    keywords: 'bulk file renaming, bulk rename files, batch rename, rename multiple files, sequential file rename',
   },
   meme: {
     title: 'Free Meme Generator | Add Top & Bottom Captions to Photos',
@@ -124,7 +124,7 @@ const ROUTE_PATH_MAP = {
   convert: '/convert-image',
   watermark: '/watermark-image',
   exif: '/exif-metadata',
-  batchrename: '/batch-rename',
+  batchrename: '/bulk-file-rename',
   meme: '/meme-generator',
   collage: '/image-collage',
   pdforganizer: '/pdf-organizer',
