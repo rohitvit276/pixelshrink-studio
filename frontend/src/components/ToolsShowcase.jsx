@@ -11,6 +11,13 @@ const TOOL_FEATURES = {
   compressvideo: ['MP4, MOV, WebM', 'Browser-based', 'Up to ~500 MB'],
   video2mp3:     ['Extract audio', 'MP3 output', 'Any video format'],
   texttoimage:   ['7+ font families', 'Social media presets', 'PNG & JPG export'],
+  convert:       ['PNG, JPG, WEBP, AVIF', 'Quality control', 'Batch conversion'],
+  watermark:     ['Text or logo', '9-point positioning', 'Tile mode'],
+  exif:          ['View camera & GPS data', 'One-click strip', 'Privacy-first'],
+  batchrename:   ['Custom naming pattern', 'Sequential numbering', 'ZIP download'],
+  meme:          ['Classic top/bottom text', 'Auto text wrapping', 'PNG export'],
+  collage:       ['2-9 images', 'Adjustable grid', 'Cover or fit mode'],
+  pdforganizer:  ['Merge multiple PDFs', 'Reorder & delete pages', 'Split to ZIP'],
 };
 
 export default function ToolsShowcase({ onToolSelect }) {

@@ -10,6 +10,13 @@ import FilterPanel from './panels/FilterPanel';
 import MoustachifyPanel from './panels/MoustachifyPanel';
 import TextToImagePanel from './panels/TextToImagePanel';
 import AIImageGeneratorPanel from './panels/AIImageGeneratorPanel';
+import ConvertPanel from './panels/ConvertPanel';
+import WatermarkPanel from './panels/WatermarkPanel';
+import ExifPanel from './panels/ExifPanel';
+import BatchRenamePanel from './panels/BatchRenamePanel';
+import MemePanel from './panels/MemePanel';
+import CollagePanel from './panels/CollagePanel';
+import PdfOrganizerPanel from './panels/PdfOrganizerPanel';
 
 export default function ToolSection({ activeTool, imageSrc, setUploadedImage }) {
   const renderTool = () => {
@@ -21,11 +28,18 @@ export default function ToolSection({ activeTool, imageSrc, setUploadedImage }) 
       case 'word2pdf': return <WordToPdfPanel />;
       case 'compressvideo': return <VideoCompressPanel />;
       case 'video2mp3': return <VideoToMp3Panel />;
-      case 'filters': 
+      case 'filters':
         return <FilterPanel imageSrc={imageSrc} setUploadedImage={setUploadedImage} />;
       case 'moustachify': return <MoustachifyPanel />;
       case 'aimagegen': return <AIImageGeneratorPanel />;
       case 'texttoimage': return <TextToImagePanel />;
+      case 'convert': return <ConvertPanel />;
+      case 'watermark': return <WatermarkPanel />;
+      case 'exif': return <ExifPanel />;
+      case 'batchrename': return <BatchRenamePanel />;
+      case 'meme': return <MemePanel />;
+      case 'collage': return <CollagePanel />;
+      case 'pdforganizer': return <PdfOrganizerPanel />;
       default: return <ShrinkPanel />;
     }
   };

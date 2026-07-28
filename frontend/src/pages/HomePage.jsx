@@ -71,6 +71,41 @@ const SEO_META = {
     description: 'Extract audio from videos and download as MP3. Works with MP4, MOV, WebM files. Perfect for podcasts and music clips.',
     keywords: 'video to mp3, extract audio, convert video to audio, mp3 converter, audio extractor',
   },
+  convert: {
+    title: 'Free Image Format Converter | PNG, JPG, WEBP & AVIF',
+    description: 'Convert images between PNG, JPG, WEBP and AVIF online for free. Adjust quality and download instantly. 100% browser-based.',
+    keywords: 'image converter, png to jpg, jpg to png, webp converter, avif converter, image format converter',
+  },
+  watermark: {
+    title: 'Free Watermark Maker | Add Text or Logo Watermark to Photos',
+    description: 'Add a text or logo watermark to your images online for free. Control position, opacity and size. No uploads required.',
+    keywords: 'add watermark, watermark image, logo watermark, text watermark, watermark maker online',
+  },
+  exif: {
+    title: 'Free EXIF Viewer & Metadata Remover | Strip GPS & Camera Data',
+    description: 'View hidden EXIF metadata in your photos — camera model, GPS location, timestamps — and strip it all with one click before sharing.',
+    keywords: 'exif viewer, remove metadata, strip exif, remove gps from photo, metadata remover, photo privacy',
+  },
+  batchrename: {
+    title: 'Free Batch File Renamer | Rename Multiple Files at Once',
+    description: 'Rename dozens of files at once using a custom naming pattern and sequential numbering. Download as a ZIP. 100% browser-based.',
+    keywords: 'batch rename, rename multiple files, sequential rename, bulk file rename online',
+  },
+  meme: {
+    title: 'Free Meme Generator | Add Top & Bottom Captions to Photos',
+    description: 'Create classic memes online for free. Add bold top and bottom captions to any image and download instantly.',
+    keywords: 'meme generator, meme maker, create meme, caption generator, free meme maker online',
+  },
+  collage: {
+    title: 'Free Photo Collage Maker | Merge Multiple Images into One',
+    description: 'Combine 2 to 9 photos into a single grid collage online for free. Adjust columns, spacing and background color.',
+    keywords: 'photo collage maker, image collage, merge photos, combine images, collage grid online',
+  },
+  pdforganizer: {
+    title: 'Free PDF Merge, Split & Reorder Tool | Organize PDF Pages',
+    description: 'Merge multiple PDFs into one, or split, delete and reorder pages in a single PDF. 100% browser-based, no uploads.',
+    keywords: 'merge pdf, split pdf, reorder pdf pages, delete pdf pages, combine pdf files, pdf organizer online',
+  },
 };
 
 const ROUTE_PATH_MAP = {
@@ -86,6 +121,13 @@ const ROUTE_PATH_MAP = {
   word2pdf: '/word-to-pdf',
   compressvideo: '/compress-video',
   video2mp3: '/video-to-mp3',
+  convert: '/convert-image',
+  watermark: '/watermark-image',
+  exif: '/exif-metadata',
+  batchrename: '/batch-rename',
+  meme: '/meme-generator',
+  collage: '/image-collage',
+  pdforganizer: '/pdf-organizer',
 };
 
 export default function HomePage({ activeTool: routeTool }) {

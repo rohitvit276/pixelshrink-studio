@@ -24,6 +24,13 @@ function App() {
           <Route path="/video-to-mp3" element={<HomePage activeTool="video2mp3" />} />
           <Route path="/ai-image-generator" element={<HomePage activeTool="aimagegen" />} />
           <Route path="/text-to-image" element={<HomePage activeTool="texttoimage" />} />
+          <Route path="/convert-image" element={<HomePage activeTool="convert" />} />
+          <Route path="/watermark-image" element={<HomePage activeTool="watermark" />} />
+          <Route path="/exif-metadata" element={<HomePage activeTool="exif" />} />
+          <Route path="/batch-rename" element={<HomePage activeTool="batchrename" />} />
+          <Route path="/meme-generator" element={<HomePage activeTool="meme" />} />
+          <Route path="/image-collage" element={<HomePage activeTool="collage" />} />
+          <Route path="/pdf-organizer" element={<HomePage activeTool="pdforganizer" />} />
           {/* Fallback for any invalid routes */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
