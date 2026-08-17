@@ -31,6 +31,15 @@ function App() {
           <Route path="/meme-generator" element={<HomePage activeTool="meme" />} />
           <Route path="/image-collage" element={<HomePage activeTool="collage" />} />
           <Route path="/pdf-organizer" element={<HomePage activeTool="pdforganizer" />} />
+          <Route path="/notepad" element={<HomePage activeTool="notepad" />} />
+          <Route path="/json-formatter" element={<HomePage activeTool="jsonformatter" />} />
+          <Route path="/password-generator" element={<HomePage activeTool="passwordgen" />} />
+          <Route path="/diff-checker" element={<HomePage activeTool="diffchecker" />} />
+          <Route path="/qr-code-generator" element={<HomePage activeTool="qrcode" />} />
+          <Route path="/base64-encoder-decoder" element={<HomePage activeTool="base64" />} />
+          <Route path="/markdown-previewer" element={<HomePage activeTool="mdpreview" />} />
+          <Route path="/word-counter" element={<HomePage activeTool="wordcounter" />} />
+          <Route path="/image-to-pdf" element={<HomePage activeTool="img2pdf" />} />
           {/* Fallback for any invalid routes */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

@@ -18,6 +18,15 @@ const TOOL_FEATURES = {
   meme:          ['Classic top/bottom text', 'Auto text wrapping', 'PNG export'],
   collage:       ['2-9 images', 'Adjustable grid', 'Cover or fit mode'],
   pdforganizer:  ['Merge multiple PDFs', 'Reorder & delete pages', 'Split to ZIP'],
+  notepad:       ['Autosaves as you type', 'No account needed', 'Download as .txt'],
+  jsonformatter: ['Validate & format', 'Minify JSON', 'Instant error detection'],
+  passwordgen:   ['Crypto-secure random', 'Customizable length', 'Strength indicator'],
+  diffchecker:   ['Word-by-word diff', 'Highlighted changes', 'Instant comparison'],
+  qrcode:        ['Any text or URL', 'Adjustable size', 'Download as PNG'],
+  base64:        ['Encode & decode', 'Full Unicode support', 'One-click copy'],
+  mdpreview:      ['Live side-by-side preview', 'GitHub-flavored', 'Sanitized output'],
+  wordcounter:   ['Words & characters', 'Sentences & paragraphs', 'Reading time estimate'],
+  img2pdf:       ['Combine into one PDF', 'Or export separately', 'Preserves image size'],
 };
 
 export default function ToolsShowcase({ onToolSelect }) {

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
 import ToolsShowcase from '../components/ToolsShowcase';
+import NewToolsPromo from '../components/NewToolsPromo';
 import FeaturesGrid from '../components/FeaturesGrid';
 import ToolSection from '../components/ToolSection';
 import InfoSections from '../components/InfoSections';
@@ -106,6 +107,51 @@ const SEO_META = {
     description: 'Merge multiple PDFs into one, or split, delete and reorder pages in a single PDF. 100% browser-based, no uploads.',
     keywords: 'merge pdf, split pdf, reorder pdf pages, delete pdf pages, combine pdf files, pdf organizer online',
   },
+  notepad: {
+    title: 'PSnotepad — Free Online Notepad | Autosaving Browser Scratchpad',
+    description: 'PSnotepad is a free online notepad that autosaves as you type. No sign-up, no uploads — your notes stay in your browser.',
+    keywords: 'online notepad, free notepad, autosave notes, browser scratchpad, notepad online, PSnotepad',
+  },
+  jsonformatter: {
+    title: 'Free JSON Formatter & Validator Online',
+    description: 'Format, validate and minify JSON online for free. Instantly spot errors and get beautifully indented output.',
+    keywords: 'json formatter, json validator, format json online, minify json, json beautifier',
+  },
+  passwordgen: {
+    title: 'Free Secure Password Generator Online',
+    description: 'Generate strong, random passwords online for free. Customize length and character types. Nothing sent over the network.',
+    keywords: 'password generator, random password, secure password generator, strong password online',
+  },
+  diffchecker: {
+    title: 'Free Online Text Diff Checker | Compare Two Texts',
+    description: 'Compare two blocks of text online for free and instantly see additions and deletions highlighted.',
+    keywords: 'diff checker, text compare, compare text online, text difference tool',
+  },
+  qrcode: {
+    title: 'Free QR Code Generator Online | Text & URL to QR',
+    description: 'Generate QR codes online for free from any text or URL. Download instantly as a PNG. No uploads required.',
+    keywords: 'qr code generator, free qr code, create qr code, url to qr code, text to qr code',
+  },
+  base64: {
+    title: 'Free Base64 Encoder & Decoder Online',
+    description: 'Encode or decode Base64 online for free, with full Unicode support for emoji and non-Latin text.',
+    keywords: 'base64 encoder, base64 decoder, encode base64, decode base64, base64 converter',
+  },
+  mdpreview: {
+    title: 'Free Online Markdown Previewer & Editor',
+    description: 'Write and preview Markdown live online for free. Perfect for README files, comments and documentation.',
+    keywords: 'markdown previewer, markdown editor online, live markdown preview, md to html',
+  },
+  wordcounter: {
+    title: 'Free Word Counter & Character Counter Online',
+    description: 'Count words, characters, sentences and paragraphs online for free, with estimated reading time. Updates live.',
+    keywords: 'word counter, character counter, count words online, reading time calculator',
+  },
+  img2pdf: {
+    title: 'Free Image to PDF Converter Online | JPG, PNG to PDF',
+    description: 'Convert JPG, PNG and WEBP images to PDF online for free. Combine multiple images into one PDF or export separate PDFs. No uploads.',
+    keywords: 'image to pdf, jpg to pdf, png to pdf, convert images to pdf, photo to pdf converter',
+  },
 };
 
 const ROUTE_PATH_MAP = {
@@ -128,6 +174,15 @@ const ROUTE_PATH_MAP = {
   meme: '/meme-generator',
   collage: '/image-collage',
   pdforganizer: '/pdf-organizer',
+  notepad: '/notepad',
+  jsonformatter: '/json-formatter',
+  passwordgen: '/password-generator',
+  diffchecker: '/diff-checker',
+  qrcode: '/qr-code-generator',
+  base64: '/base64-encoder-decoder',
+  mdpreview: '/markdown-previewer',
+  wordcounter: '/word-counter',
+  img2pdf: '/image-to-pdf',
 };
 
 export default function HomePage({ activeTool: routeTool }) {
@@ -169,6 +224,7 @@ export default function HomePage({ activeTool: routeTool }) {
       <Header onToolSelect={setActiveTool} />
       <main>
         {!routeTool && <HeroSection onGetStarted={() => scrollToTool(null)} />}
+        {!routeTool && <NewToolsPromo onToolSelect={scrollToTool} />}
         {!routeTool && <ToolsShowcase onToolSelect={scrollToTool} />}
         {!routeTool && <MoustachifyShowcase onTryNow={scrollToTool} />}
         <ToolSection 

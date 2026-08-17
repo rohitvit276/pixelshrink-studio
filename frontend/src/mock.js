@@ -1,5 +1,5 @@
 // Mock data for PixelShrink Studio (frontend-only)
-import { Scissors, Eraser, Crop as CropIcon, FileText, FileType2, Video, Music, Sparkles, Smile, Type, Image as ImageIcon, Repeat, Stamp, ShieldOff, FileStack, Laugh, LayoutGrid, Combine } from 'lucide-react';
+import { Scissors, Eraser, Crop as CropIcon, FileText, FileType2, Video, Music, Sparkles, Smile, Type, Image as ImageIcon, Repeat, Stamp, ShieldOff, FileStack, Laugh, LayoutGrid, Combine, StickyNote, Braces, KeyRound, GitCompare, QrCode, Binary, FileCode2, AlignLeft, Images } from 'lucide-react';
 
 export const TOOLS = [
   {
@@ -200,7 +200,109 @@ export const TOOLS = [
     seoDesc: 'Merge multiple PDFs into one, or split, delete and reorder pages in a single PDF.',
     seoKeywords: 'merge pdf, split pdf, reorder pdf pages, delete pdf pages, combine pdf files',
   },
+  {
+    key: 'notepad',
+    label: 'PSnotepad',
+    short: 'PSnotepad',
+    icon: StickyNote,
+    headline: 'PSnotepad — a quick scratchpad that autosaves, free.',
+    sub: 'Jot down notes or drafts right in your browser. Autosaves as you type, no account needed.',
+    seoTitle: 'PSnotepad — Free Online Notepad | Autosaving Browser Scratchpad',
+    seoDesc: 'PSnotepad is a free online notepad that autosaves as you type. No sign-up, no uploads — your notes stay in your browser.',
+    seoKeywords: 'online notepad, free notepad, autosave notes, browser scratchpad, notepad online, PSnotepad',
+  },
+  {
+    key: 'jsonformatter',
+    label: 'JSON Formatter',
+    short: 'JSON',
+    icon: Braces,
+    headline: 'JSON Formatter — validate and beautify JSON, free.',
+    sub: 'Paste messy or minified JSON and get it validated, indented and easy to read — or minified down.',
+    seoTitle: 'Free JSON Formatter & Validator Online',
+    seoDesc: 'Format, validate and minify JSON online for free. Instantly spot errors and get beautifully indented output.',
+    seoKeywords: 'json formatter, json validator, format json online, minify json, json beautifier',
+  },
+  {
+    key: 'passwordgen',
+    label: 'Password Generator',
+    short: 'Password',
+    icon: KeyRound,
+    headline: 'Password Generator — strong, random passwords, free.',
+    sub: 'Generate a secure random password with your choice of length and character types, right in your browser.',
+    seoTitle: 'Free Secure Password Generator Online',
+    seoDesc: 'Generate strong, random passwords online for free. Customize length and character types. Nothing sent over the network.',
+    seoKeywords: 'password generator, random password, secure password generator, strong password online',
+  },
+  {
+    key: 'diffchecker',
+    label: 'Diff Checker',
+    short: 'Diff',
+    icon: GitCompare,
+    headline: 'Diff Checker — compare two texts, free.',
+    sub: 'Paste two versions of a text and see exactly what changed, word by word.',
+    seoTitle: 'Free Online Text Diff Checker | Compare Two Texts',
+    seoDesc: 'Compare two blocks of text online for free and instantly see additions and deletions highlighted.',
+    seoKeywords: 'diff checker, text compare, compare text online, text difference tool',
+  },
+  {
+    key: 'qrcode',
+    label: 'QR Code Generator',
+    short: 'QR Code',
+    icon: QrCode,
+    headline: 'QR Code Generator — text or URL to QR code, free.',
+    sub: 'Turn any text, URL or message into a scannable QR code and download it as a PNG.',
+    seoTitle: 'Free QR Code Generator Online | Text & URL to QR',
+    seoDesc: 'Generate QR codes online for free from any text or URL. Download instantly as a PNG. No uploads required.',
+    seoKeywords: 'qr code generator, free qr code, create qr code, url to qr code, text to qr code',
+  },
+  {
+    key: 'base64',
+    label: 'Base64 Encoder/Decoder',
+    short: 'Base64',
+    icon: Binary,
+    headline: 'Base64 Encoder/Decoder — convert text instantly, free.',
+    sub: 'Encode text to Base64 or decode Base64 back to text, with full Unicode support.',
+    seoTitle: 'Free Base64 Encoder & Decoder Online',
+    seoDesc: 'Encode or decode Base64 online for free, with full Unicode support for emoji and non-Latin text.',
+    seoKeywords: 'base64 encoder, base64 decoder, encode base64, decode base64, base64 converter',
+  },
+  {
+    key: 'mdpreview',
+    label: 'Markdown Previewer',
+    short: 'Markdown',
+    icon: FileCode2,
+    headline: 'Markdown Previewer — live preview as you type, free.',
+    sub: 'Write Markdown and see it rendered live, side by side. Great for README files and GitHub comments.',
+    seoTitle: 'Free Online Markdown Previewer & Editor',
+    seoDesc: 'Write and preview Markdown live online for free. Perfect for README files, comments and documentation.',
+    seoKeywords: 'markdown previewer, markdown editor online, live markdown preview, md to html',
+  },
+  {
+    key: 'wordcounter',
+    label: 'Word Counter',
+    short: 'Word Count',
+    icon: AlignLeft,
+    headline: 'Word Counter — words, characters & reading time, free.',
+    sub: 'Get live counts of words, characters, sentences and paragraphs, plus an estimated reading time.',
+    seoTitle: 'Free Word Counter & Character Counter Online',
+    seoDesc: 'Count words, characters, sentences and paragraphs online for free, with estimated reading time. Updates live.',
+    seoKeywords: 'word counter, character counter, count words online, reading time calculator',
+  },
+  {
+    key: 'img2pdf',
+    label: 'Image to PDF',
+    short: 'Img→PDF',
+    icon: Images,
+    headline: 'Image to PDF — turn photos into a PDF, free.',
+    sub: 'Convert one or many images into a PDF. Combine them into a single file, or keep each as its own PDF.',
+    seoTitle: 'Free Image to PDF Converter Online | JPG, PNG to PDF',
+    seoDesc: 'Convert JPG, PNG and WEBP images to PDF online for free. Combine multiple images into one PDF or export separate PDFs. No uploads.',
+    seoKeywords: 'image to pdf, jpg to pdf, png to pdf, convert images to pdf, photo to pdf converter',
+  },
 ];
+
+// Keys of the newly launched utility tools, used to feature them in a dedicated homepage promo.
+export const NEW_UTILITY_TOOL_KEYS = ['notepad', 'jsonformatter', 'passwordgen', 'diffchecker', 'qrcode', 'base64', 'mdpreview', 'wordcounter', 'img2pdf'];
 
 export const NAV_LINKS = TOOLS.map(({ key, label }) => ({ label, tool: key, href: '#tool' }));
 
@@ -240,6 +342,22 @@ export const FAQ_ITEMS = [
   {
     q: 'How does AI image generation work here?',
     a: 'The AI Image Generator sends your prompt and settings to Hugging Face Inference API. Most images generate in 2-10 seconds. Free tier access follows fair-use and rate limits.',
+  },
+  {
+    q: 'Are the Notepad, JSON Formatter and other new utility tools free too?',
+    a: 'Yes — Notepad, JSON Formatter, Password Generator, Diff Checker, QR Code Generator, Base64 Encoder/Decoder, Markdown Previewer and Word Counter are all free, with no account or sign-up required.',
+  },
+  {
+    q: 'Do the new utility tools also keep my data private?',
+    a: "Yes. They run entirely in your browser — nothing is uploaded to a server. The Notepad autosaves to this browser's local storage only, so it stays on your device and isn't accessible from anywhere else.",
+  },
+  {
+    q: 'Is the Password Generator actually secure?',
+    a: "Yes. It uses your browser's built-in cryptographic random number generator (Web Crypto API), the same standard used for security-sensitive code — not a simple pseudo-random function. Passwords are generated locally and never transmitted anywhere.",
+  },
+  {
+    q: 'Is it safe to paste sensitive text into the Markdown Previewer or Diff Checker?',
+    a: 'Yes — both tools process everything locally in your browser and rendered output is sanitized to strip any embedded scripts, so nothing you paste is sent to a server or executed unsafely.',
   },
 ];
 

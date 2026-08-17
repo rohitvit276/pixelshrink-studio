@@ -17,6 +17,15 @@ import BatchRenamePanel from './panels/BatchRenamePanel';
 import MemePanel from './panels/MemePanel';
 import CollagePanel from './panels/CollagePanel';
 import PdfOrganizerPanel from './panels/PdfOrganizerPanel';
+import NotepadPanel from './panels/NotepadPanel';
+import JsonFormatterPanel from './panels/JsonFormatterPanel';
+import PasswordGeneratorPanel from './panels/PasswordGeneratorPanel';
+import DiffCheckerPanel from './panels/DiffCheckerPanel';
+import QrCodeGeneratorPanel from './panels/QrCodeGeneratorPanel';
+import Base64Panel from './panels/Base64Panel';
+import MarkdownPreviewerPanel from './panels/MarkdownPreviewerPanel';
+import WordCounterPanel from './panels/WordCounterPanel';
+import ImageToPdfPanel from './panels/ImageToPdfPanel';
 
 export default function ToolSection({ activeTool, imageSrc, setUploadedImage }) {
   const renderTool = () => {
@@ -40,6 +49,15 @@ export default function ToolSection({ activeTool, imageSrc, setUploadedImage }) 
       case 'meme': return <MemePanel />;
       case 'collage': return <CollagePanel />;
       case 'pdforganizer': return <PdfOrganizerPanel />;
+      case 'notepad': return <NotepadPanel />;
+      case 'jsonformatter': return <JsonFormatterPanel />;
+      case 'passwordgen': return <PasswordGeneratorPanel />;
+      case 'diffchecker': return <DiffCheckerPanel />;
+      case 'qrcode': return <QrCodeGeneratorPanel />;
+      case 'base64': return <Base64Panel />;
+      case 'mdpreview': return <MarkdownPreviewerPanel />;
+      case 'wordcounter': return <WordCounterPanel />;
+      case 'img2pdf': return <ImageToPdfPanel />;
       default: return <ShrinkPanel />;
     }
   };
