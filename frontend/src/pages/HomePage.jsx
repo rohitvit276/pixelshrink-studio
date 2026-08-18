@@ -221,7 +221,7 @@ export default function HomePage({ activeTool: routeTool }) {
         <link rel="canonical" href={`https://pixelshrinkstudio.com${canonicalPath}`} />
       </Helmet>
       
-      <Header onToolSelect={setActiveTool} />
+      <Header onToolSelect={setActiveTool} activeTool={activeTool} />
       <main>
         {!routeTool && <HeroSection onGetStarted={() => scrollToTool(null)} />}
         {!routeTool && <NewToolsPromo onToolSelect={scrollToTool} />}
