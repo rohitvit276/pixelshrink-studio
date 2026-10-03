@@ -40,6 +40,8 @@ function App() {
           <Route path="/markdown-previewer" element={<HomePage activeTool="mdpreview" />} />
           <Route path="/word-counter" element={<HomePage activeTool="wordcounter" />} />
           <Route path="/image-to-pdf" element={<HomePage activeTool="img2pdf" />} />
+          <Route path="/increase-image-size" element={<HomePage activeTool="increaseimage" />} />
+          <Route path="/increase-pdf-size" element={<HomePage activeTool="increasepdf" />} />
           {/* Fallback for any invalid routes */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

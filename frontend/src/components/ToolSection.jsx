@@ -26,6 +26,8 @@ import Base64Panel from './panels/Base64Panel';
 import MarkdownPreviewerPanel from './panels/MarkdownPreviewerPanel';
 import WordCounterPanel from './panels/WordCounterPanel';
 import ImageToPdfPanel from './panels/ImageToPdfPanel';
+import IncreaseImageSizePanel from './panels/IncreaseImageSizePanel';
+import IncreasePdfSizePanel from './panels/IncreasePdfSizePanel';
 
 export default function ToolSection({ activeTool, imageSrc, setUploadedImage }) {
   const renderTool = () => {
@@ -58,6 +60,8 @@ export default function ToolSection({ activeTool, imageSrc, setUploadedImage }) 
       case 'mdpreview': return <MarkdownPreviewerPanel />;
       case 'wordcounter': return <WordCounterPanel />;
       case 'img2pdf': return <ImageToPdfPanel />;
+      case 'increaseimage': return <IncreaseImageSizePanel />;
+      case 'increasepdf': return <IncreasePdfSizePanel />;
       default: return <ShrinkPanel />;
     }
   };

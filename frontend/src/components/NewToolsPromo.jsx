@@ -21,7 +21,7 @@ export default function NewToolsPromo({ onToolSelect }) {
             Try these tools for free
           </h2>
           <p className="mt-3 text-emerald-50/90 max-w-xl mx-auto">
-            Nine new browser-based utilities — no uploads, no sign-up, nothing leaves your device.
+            New browser-based utilities — no uploads, no sign-up, nothing leaves your device.
           </p>
         </div>
 

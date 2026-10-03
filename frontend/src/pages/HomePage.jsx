@@ -9,13 +9,12 @@ import InfoSections from '../components/InfoSections';
 import FAQSection from '../components/FAQSection';
 import Footer from '../components/Footer';
 import MoustachifyShowcase from '../components/MoustachifyShowcase';
-import { Helmet } from 'react-helmet-async';
 
 const SEO_META = {
   default: {
     title: 'PixelShrink Studio — Free Online Image, PDF & Video Tools',
-    description: 'Free online tools to shrink images, remove backgrounds, crop, convert PDF to Word, Word to PDF, generate AI images, style writing and compress videos. 100% browser-based.',
-    keywords: 'image resizer, image shrinker, remove background, crop image, ai image generator, text to image, pdf to word, word to pdf, compress video, video to mp3, moustachify, styled writing, free online tools',
+    description: 'Free online tools to shrink images, increase image size in KB, increase PDF size, remove backgrounds, crop, convert PDF to Word and compress videos. 100% browser-based.',
+    keywords: 'image resizer, image shrinker, increase image size, increase pdf size, remove background, crop image, ai image generator, text to image, pdf to word, word to pdf, compress video, video to mp3, moustachify, styled writing, free online tools',
   },
   shrink: {
     title: 'Free Image Resizer Online | Shrink Images Without Quality Loss',
@@ -152,6 +151,16 @@ const SEO_META = {
     description: 'Convert JPG, PNG and WEBP images to PDF online for free. Combine multiple images into one PDF or export separate PDFs. No uploads.',
     keywords: 'image to pdf, jpg to pdf, png to pdf, convert images to pdf, photo to pdf converter',
   },
+  increaseimage: {
+    title: 'Increase Image Size in KB Online | Free JPG & PNG Size Increaser',
+    description: 'Increase image size in KB or MB online for free. Make a JPG or PNG photo 20 KB, 50 KB, 100 KB or larger without losing quality, or enlarge it in pixels. No uploads.',
+    keywords: 'increase image size, increase image size in kb, increase photo size, increase jpg size, increase jpeg size in kb, image size increaser, increase image size to 20kb, increase image size to 50kb, increase image size to 100kb, enlarge image',
+  },
+  increasepdf: {
+    title: 'Increase PDF Size in KB Online | Free PDF File Size Increaser',
+    description: 'Increase PDF file size in KB or MB online for free. Make a PDF 20 KB, 100 KB, 1 MB or larger to meet a minimum upload size — pages and text stay unchanged. No uploads.',
+    keywords: 'increase pdf size, increase pdf size in kb, increase pdf file size, pdf size increaser, make pdf larger, increase pdf size to 100kb, increase pdf size to 1mb, increase pdf size online',
+  },
 };
 
 const ROUTE_PATH_MAP = {
@@ -183,7 +192,21 @@ const ROUTE_PATH_MAP = {
   mdpreview: '/markdown-previewer',
   wordcounter: '/word-counter',
   img2pdf: '/image-to-pdf',
+  increaseimage: '/increase-image-size',
+  increasepdf: '/increase-pdf-size',
 };
+
+const SITE_URL = 'https://pixelshrinkstudio.com';
+
+// Update the tags already in index.html in place, so each route has exactly one of each.
+function setHeadTag(selector, tagName, attrs) {
+  let el = document.head.querySelector(selector);
+  if (!el) {
+    el = document.createElement(tagName);
+    document.head.appendChild(el);
+  }
+  Object.entries(attrs).forEach(([k, v]) => el.setAttribute(k, v));
+}
 
 export default function HomePage({ activeTool: routeTool }) {
   const [activeTool, setActiveTool] = useState(routeTool || 'shrink');
@@ -205,22 +228,22 @@ export default function HomePage({ activeTool: routeTool }) {
   const currentSeo = SEO_META[routeTool] || SEO_META.default;
   const canonicalPath = routeTool ? (ROUTE_PATH_MAP[routeTool] || '/') : '/';
 
+  useEffect(() => {
+    const { title, description, keywords } = currentSeo;
+    const url = `${SITE_URL}${canonicalPath}`;
+    document.title = title;
+    setHeadTag('meta[name="description"]', 'meta', { name: 'description', content: description });
+    setHeadTag('meta[name="keywords"]', 'meta', { name: 'keywords', content: keywords });
+    setHeadTag('meta[property="og:title"]', 'meta', { property: 'og:title', content: title });
+    setHeadTag('meta[property="og:description"]', 'meta', { property: 'og:description', content: description });
+    setHeadTag('meta[property="og:url"]', 'meta', { property: 'og:url', content: url });
+    setHeadTag('meta[name="twitter:title"]', 'meta', { name: 'twitter:title', content: title });
+    setHeadTag('meta[name="twitter:description"]', 'meta', { name: 'twitter:description', content: description });
+    setHeadTag('link[rel="canonical"]', 'link', { rel: 'canonical', href: url });
+  }, [currentSeo, canonicalPath]);
+
   return (
     <div className="min-h-screen bg-[#fafaf7]">
-      <Helmet>
-        <title>{currentSeo.title}</title>
-        <meta name="description" content={currentSeo.description} />
-        <meta name="keywords" content={currentSeo.keywords} />
-        <meta property="og:title" content={currentSeo.title} />
-        <meta property="og:description" content={currentSeo.description} />
-        <meta property="og:url" content={`https://pixelshrinkstudio.com${canonicalPath}`} />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={currentSeo.title} />
-        <meta name="twitter:description" content={currentSeo.description} />
-        <link rel="canonical" href={`https://pixelshrinkstudio.com${canonicalPath}`} />
-      </Helmet>
-      
       <Header onToolSelect={setActiveTool} activeTool={activeTool} />
       <main>
         {!routeTool && <HeroSection onGetStarted={() => scrollToTool(null)} />}

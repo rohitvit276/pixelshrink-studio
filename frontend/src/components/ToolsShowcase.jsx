@@ -27,6 +27,8 @@ const TOOL_FEATURES = {
   mdpreview:      ['Live side-by-side preview', 'GitHub-flavored', 'Sanitized output'],
   wordcounter:   ['Words & characters', 'Sentences & paragraphs', 'Reading time estimate'],
   img2pdf:       ['Combine into one PDF', 'Or export separately', 'Preserves image size'],
+  increaseimage: ['Increase size in KB or MB', 'No quality loss', 'Or enlarge in pixels'],
+  increasepdf:   ['Increase size in KB or MB', 'Pages stay unchanged', 'Exact target size'],
 };
 
 export default function ToolsShowcase({ onToolSelect }) {

@@ -1,5 +1,5 @@
 // Mock data for PixelShrink Studio (frontend-only)
-import { Scissors, Eraser, Crop as CropIcon, FileText, FileType2, Video, Music, Sparkles, Smile, Type, Image as ImageIcon, Repeat, Stamp, ShieldOff, FileStack, Laugh, LayoutGrid, Combine, StickyNote, Braces, KeyRound, GitCompare, QrCode, Binary, FileCode2, AlignLeft, Images } from 'lucide-react';
+import { Scissors, Eraser, Crop as CropIcon, FileText, FileType2, Video, Music, Sparkles, Smile, Type, Image as ImageIcon, Repeat, Stamp, ShieldOff, FileStack, Laugh, LayoutGrid, Combine, StickyNote, Braces, KeyRound, GitCompare, QrCode, Binary, FileCode2, AlignLeft, Images, ImageUpscale, FileUp } from 'lucide-react';
 
 export const TOOLS = [
   {
@@ -299,10 +299,32 @@ export const TOOLS = [
     seoDesc: 'Convert JPG, PNG and WEBP images to PDF online for free. Combine multiple images into one PDF or export separate PDFs. No uploads.',
     seoKeywords: 'image to pdf, jpg to pdf, png to pdf, convert images to pdf, photo to pdf converter',
   },
+  {
+    key: 'increaseimage',
+    label: 'Increase Image Size',
+    short: 'Img Size+',
+    icon: ImageUpscale,
+    headline: 'Increase Image Size — make photos bigger in KB or pixels, free.',
+    sub: 'Increase image size to 20 KB, 50 KB, 100 KB or any target without losing quality. Ideal for forms with a minimum photo size.',
+    seoTitle: 'Increase Image Size in KB Online | Free JPG & PNG Size Increaser',
+    seoDesc: 'Increase image size in KB or MB online for free. Make a JPG or PNG photo 20 KB, 50 KB, 100 KB or larger without losing quality, or enlarge it in pixels.',
+    seoKeywords: 'increase image size, increase image size in kb, increase photo size, increase jpg size, image size increaser, enlarge image',
+  },
+  {
+    key: 'increasepdf',
+    label: 'Increase PDF Size',
+    short: 'PDF Size+',
+    icon: FileUp,
+    headline: 'Increase PDF Size — make a PDF bigger in KB or MB, free.',
+    sub: 'Increase PDF file size to 20 KB, 100 KB, 1 MB or any target. Pages and text stay exactly the same.',
+    seoTitle: 'Increase PDF Size in KB Online | Free PDF File Size Increaser',
+    seoDesc: 'Increase PDF file size in KB or MB online for free. Make a PDF 20 KB, 100 KB, 1 MB or larger to meet a minimum upload size.',
+    seoKeywords: 'increase pdf size, increase pdf size in kb, increase pdf file size, pdf size increaser, make pdf larger',
+  },
 ];
 
 // Keys of the newly launched utility tools, used to feature them in a dedicated homepage promo.
-export const NEW_UTILITY_TOOL_KEYS = ['notepad', 'jsonformatter', 'passwordgen', 'diffchecker', 'qrcode', 'base64', 'mdpreview', 'wordcounter', 'img2pdf'];
+export const NEW_UTILITY_TOOL_KEYS = ['notepad', 'jsonformatter', 'passwordgen', 'diffchecker', 'qrcode', 'base64', 'mdpreview', 'wordcounter', 'img2pdf', 'increaseimage', 'increasepdf'];
 
 export const NAV_LINKS = TOOLS.map(({ key, label }) => ({ label, tool: key, href: '#tool' }));
 
@@ -359,6 +381,14 @@ export const FAQ_ITEMS = [
     q: 'Is it safe to paste sensitive text into the Markdown Previewer or Diff Checker?',
     a: 'Yes — both tools process everything locally in your browser and rendered output is sanitized to strip any embedded scripts, so nothing you paste is sent to a server or executed unsafely.',
   },
+  {
+    q: 'How do I increase image size in KB?',
+    a: 'Open Increase Image Size, add your JPG or PNG, type the size you need — for example 20 KB, 50 KB or 100 KB — and download. The file grows to that size while the picture keeps its exact pixels and quality. You can also increase image size in pixels to enlarge the photo itself.',
+  },
+  {
+    q: 'Can I increase the size of a PDF file?',
+    a: 'Yes. Increase PDF Size grows a PDF to the file size you choose, such as 20 KB, 100 KB or 1 MB, which helps when an upload form rejects a document for being too small. Pages, text and layout are not changed.',
+  },
 ];
 
 export const USE_CASES = [
@@ -373,4 +403,5 @@ export const USE_CASES = [
   'Extracting audio from videos for podcasts and clips',
   'Generating AI artwork, concept designs and social graphics from text prompts',
   'Creating text graphics and quote images for social media',
+  'Increasing image size or PDF size to meet a minimum upload limit on application forms',
 ];
